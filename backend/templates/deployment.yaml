@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment1
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      type: myapp
+  template:
+    metadata:
+      labels:
+        type: myapp
+    spec:
+      containers:
+        - name: container1
+          image: machhindrakangane/web
+          ports:
+            - containerPort: 4000
+              protocol: TCP
